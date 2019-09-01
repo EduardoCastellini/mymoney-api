@@ -1,5 +1,5 @@
 {
-  "name": "API-MyMoney",
+  "name": "api_mymoney",
   "version": "1.0.0",
   "description": "API developed for the Personal Financial Control APP.",
   "main": "server.js",
@@ -13,6 +13,7 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^7.12.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.12.2",

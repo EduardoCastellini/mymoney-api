@@ -1,6 +1,10 @@
 import { Router } from 'express';
 
+import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
+import MovementController from './app/controllers/MovementController';
+
+import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
 
@@ -9,5 +13,10 @@ routes.get('/', (req, res) => {
 });
 
 routes.post('/users', UserController.store);
+routes.post('/sessions', SessionController.store);
+
+routes.use(authMiddleware);
+
+routes.post('/movements', MovementController.store);
 
 export default routes;
