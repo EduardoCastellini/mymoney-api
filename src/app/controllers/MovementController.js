@@ -1,8 +1,29 @@
 import * as Yup from 'yup';
 
 import Movement from '../models/Movement';
+import User from '../models/User';
 
 class MovementController {
+  async index(req, res) {
+    const { page = 1 } = req.query;
+
+    const movement = await Movement.findAll({
+      where: { user_id: req.userId },
+      order: ['created_at'],
+      attributes: ['id', 'created_at', 'description', 'value', 'type'],
+      limit: 20,
+      offset: (page - 1) * 20,
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'name'],
+        },
+      ],
+    });
+
+    return res.json(movement);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       type: Yup.string().required(),

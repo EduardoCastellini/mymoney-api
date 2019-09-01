@@ -18,5 +18,6 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddleware);
 
 routes.post('/movements', MovementController.store);
+routes.get('/movements', MovementController.index);
 
 export default routes;
