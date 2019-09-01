@@ -11,4 +11,4 @@ module.exports = {
     underscored: true,
     underscoredAll: true,
   },
-}
+};
