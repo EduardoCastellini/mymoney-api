@@ -1,23 +1,14 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('movements', {
+    queryInterface.createTable('categories', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      type: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      value: {
-        type: Sequelize.DECIMAL,
-        allowNull: false,
-      },
       description: {
         type: Sequelize.STRING,
-        allowNull: true,
       },
       user_id: {
         type: Sequelize.INTEGER,
@@ -27,14 +18,14 @@ module.exports = {
         allowNull: false,
       },
       created_at: {
-        type: Sequelize.DATE,
         allowNull: false,
+        type: Sequelize.DATE,
       },
       updated_at: {
-        type: Sequelize.DATE,
         allowNull: false,
+        type: Sequelize.DATE,
       },
     }),
 
-  down: queryInterface => queryInterface.dropTable('users'),
+  down: queryInterface => queryInterface.dropTable('categories'),
 };

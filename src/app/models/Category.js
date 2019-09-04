@@ -1,11 +1,9 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Movement extends Model {
+class Category extends Model {
   static init(sequelize) {
     super.init(
       {
-        value: Sequelize.DECIMAL,
-        type: Sequelize.STRING,
         description: Sequelize.STRING,
       },
       {
@@ -18,8 +16,7 @@ class Movement extends Model {
 
   static associate(models) {
     this.belongsTo(models.User, { foreignKey: 'user_id' });
-    this.belongsTo(models.Category, { foreignKey: 'category_id' });
   }
 }
 
-export default Movement;
+export default Category;
